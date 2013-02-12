@@ -9,10 +9,12 @@ import static org.junit.Assert.assertThat;
 public class StringJoiningTest {
     @Test
     public void join() {
+        String expectedResult = "one,two,three";
+
         String result = Joiner.on(",")
                 .skipNulls()
                 .join("one", null, "two", "three");
-        String expectedResult = "";
+
         assertThat(result, is(expectedResult));
     }
 }
