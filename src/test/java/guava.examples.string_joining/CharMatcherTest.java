@@ -16,4 +16,14 @@ public class CharMatcherTest {
                 .removeFrom(input);
         assertThat(result, is("34425"));
     }
+
+    @Test
+    public void getPhoneNumber() {
+        String input = "my phone no. is 010-824-1490";
+        String result = CharMatcher
+                .DIGIT
+                .or(CharMatcher.is('-'))
+                .retainFrom(input);
+        assertThat(result, is("010-824-1490"));
+    }
 }
